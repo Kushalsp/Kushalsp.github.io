@@ -165,17 +165,17 @@ var HangmanMain = (function () {
 
 
 
-        HangmanMain.readFile = function (evt) {
-           var files = evt.target.files;
-           var file = files[0];           
-           var reader = new FileReader();
-           reader.onload = function(event) {
-            document.getElementById('dict').innerHTML = event.target.result; 
-            console.log(document.getElementById('dict').innerHTML);          
-           }
-           reader.readAsText(file);
-           return;
-        }
+        // HangmanMain.readFile = function (evt) {
+        //    var files = evt.target.files;
+        //    var file = files[0];           
+        //    var reader = new FileReader();
+        //    reader.onload = function(event) {
+        //     document.getElementById('dict').innerHTML = event.target.result; 
+        //     console.log(document.getElementById('dict').innerHTML);          
+        //    }
+        //    reader.readAsText(file);
+        //    return;
+        // }
 
 
 
@@ -358,8 +358,7 @@ HangmanMain["__class"] = "HangmanMain";
 
 
 
-document.getElementById('files').addEventListener('change', HangmanMain.readFile, false);
-//document.getElementById("guess_input").addEventListener("input", HangmanMain., false;
+//document.getElementById('files').addEventListener('change', HangmanMain.readFile, false);
 
 
 
