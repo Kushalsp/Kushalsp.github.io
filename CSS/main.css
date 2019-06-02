@@ -1,0 +1,146 @@
+body{
+	background-color: lightblue;
+	margin: 0;
+	font-family: Georgia;
+}
+
+header{
+	background-color: lightblue;
+	color: white;
+	padding: 15px
+}
+
+header nav{
+	box-shadow: 0px 0px 10px;
+	font-size: 20px;
+}
+
+header nav .navbar-brand{ 
+	font-size: 25px;
+}
+
+header nav ul li{
+	padding: 5px 15px
+}
+
+.my-dropdown{
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown-content{
+  display: none;
+  position: absolute;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+.features{
+	margin: -30px 0px 0px 0px;
+	box-shadow: 0px 0px 10px;
+	display: flex;
+	flex-direction: row;
+	background-image: url("./../images/sf.jpg");
+	background-size: 100%
+}
+
+.features figure img{
+	margin: 45px 0px 15px 15px;
+	width: 300px;
+	box-shadow: grey 0px 0px 10px;
+}
+
+.ehgame_features{
+	padding: 10px 20px;
+	box-shadow: 0px 0px 10px;
+	display: flex;
+	flex-direction: column;
+	background-color: white;
+}
+
+.ehgame_start ul li input{
+	margin: 0.3em;
+}
+
+.ehgame_play{
+	display: none;
+}
+
+.ehgame_end{
+	display: none;
+}
+
+ul{
+	list-style-type: circle;
+}
+
+#dict{
+	display: none;
+}
+
+.myself{
+	color: black;
+	font-size: 18px;
+	padding: 15px;
+}
+
+footer{
+	background: lightgrey;
+	padding: 5px 15px;
+	font-size: 15px;
+	text-align: center;
+}
+
+@media screen and (max-width: 1270px){
+	.features{
+		display: block;
+	}
+
+	.features figure img{
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width: 50% 
+		margin: 45px 350px 45px 350px;
+	}
+
+	header{
+		padding: 10px;
+	}
+}
+
+@media screen and (max-width: 1175px){
+	.features{
+		background-repeat: repeat-x;
+	}
+
+/*To disable hover in smaller screen size*/
+/*	.dropdown-menu {
+	    display: none !important;
+	}
+
+	.open .dropdown-menu {
+	    display: inline-block !important;
+	}*/
+}
+
+@media screen and (max-width: 500px){
+	header nav .navbar-brand{
+		font-size: 20px;
+	}
+
+	header nav{
+		font-size: 15px;
+	}
+
+	.dropdown-content{
+		font-size: 15px; 
+	}
+
+	.myself{
+		font-size: 15px;
+	}
+}
+

@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Evil Hangman Game</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="./../CSS/main.css">
+	</head>
+	<body>
+		<header>
+			<nav class="navbar navbar-expand-lg navbar-light"  style="background-color: lightgrey">
+			  <a class="navbar-brand" href="./../index.html"><strong>Kushal Pachchigar</strong></a>
+			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			    <span class="navbar-toggler-icon"></span>
+			  </button>
+
+			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			    <ul class="navbar-nav mr-auto">
+			      <li class="nav-item">
+			        <a class="nav-link" href="./../index.html">Home<span class="sr-only">(current)</span></a>
+			      </li>
+			      <li class="nav-item dropdown">
+			      	<div class="my-dropdown">
+				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          Resume
+				        </a>
+				        <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown">
+				          <a class="dropdown-item" target="_blank" href="./../files/Resume.pdf">View Resume</a>
+				          <a class="dropdown-item" target="_blank" href="./../files/Resume.pdf" download="Resume">Download Resume</a>
+				        </div>
+				    </div>
+				   </li>
+			      <li class="nav-item dropdown">
+			      	<div class="my-dropdown">
+				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          Projects
+				        </a>
+				        <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown">
+				          <a class="dropdown-item" href="ehgame.html">Evil Hangman Game</a>
+				        </div>
+				    </div>
+				   </li>
+			      <li class="nav-item">
+			        <a class="nav-link" target="_blank" href="https://www.linkedin.com/in/kushal-pachchigar-18547313b/">LinkedIn</a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" target="_blank" href="https://www.facebook.com/Kushal.pachchigar">Facebook</a>
+			      </li>
+			    </ul>
+			  </div>
+			</nav>
+
+
+		</header>
+
+		<section class="ehgame_features">
+			<section id="ehgame_start" class="ehgame_start">
+				<h5>Welcome to Evil Hangman Game!</h5>
+				<ul>
+					<li>
+						Choose a .txt file that has a list of all acceptable english words from which a computer can choose the secret word! If you don't have such file, download the sample.txt file (downloaded as dctionary.txt file) and select that as your new file. 
+						<a target="_blank" href="./../files/dictionary.txt" download="dictionary.txt">Sample.txt</a>
+						<input type="file" id="files" name="files[]" multiple />
+					</li>
+					
+					<li>What length word do you want to use? <input id="length" name="length" type="text" placeholder="insert length"></li>
+					<li>How many wrong guesses allowed? (Max: 25)<input id="tries" name="tries" type="text" placeholder="insert tries"></li>
+					<li>What difficulty level do you want? Enter a number between 1(EASIEST) and 3(HARDEST): <input id="difficulty" name="difficulty" type="text" placeholder="insert difficulty level"></li>
+					<button id="begin" onclick="Javascript: toggle_view()">Let's Begin!</button>
+				</ul>
+			</section>
+
+			<section id="dict" class="temp">
+				<!-- <input  type="text" name="temp_dict" value=""> -->
+			</section>
+
+			<section id="ehgame_play" class="ehgame_play">
+				<h5>Welcome to Evil Hangman Game!</h5>
+				<h6>Let's Play</h6>
+				<ul>
+					<li id="update_guess_left">Guesses left:</li>
+					<li id="update_guess_so_far">Guessed so far :</li>
+					<li id="update_current_word">Current word :</li>
+					<li id="update_guess">Your guess? <input id="guess_input" type="text" name="guess" placeholder="Make a Guess!"> <button onclick="go()">Guess</button> </li>
+					<li id="update_result">The guess:</li>
+					<li id="update_final_result">Result</li>
+					<button id="start_over" onclick="Javascript: toggle_view()">Start Over</button>
+				</ul>
+			</section>
+
+			<section id="ehgame_end" class="ehgame_end">
+				<br><strong>Disclosure: (What's different in this game then regular Hangman game? Why is this one more difficult to win??) </strong>
+				<p>
+					This algorithm was introduced to me in the Data structure's class (Fall2018) at UT Austin, taught by Mike Scott.
+					<br>The simple answer to the question is: The algorithm does not pick a single word until it has to. Instead, it keeps a list of possible words based on user guesses. Here' how it picks the "active word list".
+					<br><br>The words (really just Strings) in the active list all  have the same pattern as the "word" displayed to the user.
+					<br>A pattern consist of the letters that have been guessed correctly and the letters that have not been guessed yet. For example, if the current pattern is "-e-e-" then the words "beget", "beret", "bevel", "defer", "deter" and so forth would be in the list of active words. The "-" characters are wildcard characters and represent any character that has not been guessed yet.
+					<br><br>Here's how the algorithm narrows the active list of words:
+					<br>Suppose that the user has asked for a 5-letter word.  Instead of picking a specific 5-letter word, it considers all 5-letter words from the original dictionary. Suppose that the dictionary contains just the following 9 words: 
+					<ul>
+						<li>[ally, beta, cool, deal, else, flew, good, hope, ibex]</li>
+					</ul>
+					<br>Now, suppose that the user guesses the letter ‘e’.  The program need to indicate which letters in the word it've “picked” are e's.  Of course, it dosent hve to "pick" a word, and so there are multiple options about where it reveal the e's. Every word in the set falls into one of five “word families:”
+					<ul>
+						<li>“- - - -”: which is the pattern for [ally, cool, good]</li>
+						<li>“- e - -”: which is the pattern for [beta, deal]</li>
+						<li>“- - e -”: which is the pattern for [flew, ibex]</li>
+						<li>“e - - e”: which is the pattern for [else]</li>
+						<li>“- - - e”: which is the pattern for [hope]</li>
+					</ul>
+					In the interests of simplicity, it chooses the largest of the remaining word families for Hard difficulty level. In this case, it picks the family “- - - -” with the largest "word family". This reduces the set of words to:
+					<ul>
+						<li>[ally, cool, good]</li>
+					</ul>
+					Since it didn't reveal any letters, it counts "e" as a wrong guess. 
+					<br><br>In case of a tie, it revels the picks the word family that revels the minimum letters in the current word.
+					<br>If this still results in a tie, it breaks the tie by picking the pattern that is "smallest" based on the lexigraphical ordering of Strings. Here, "---a" is lexigraphically smaller (or before) "a---".
+					<br>Medium and easy dificulty level chooses the remaining word families as under:
+					<br><br>Medium behavior for picking new list of words in makeGuess method: 
+					<ul>
+						<li>Guess 1, PICK HARDEST WORD LIST</li>
+						<li>Guess 2, PICK HARDEST WORD LIST</li>
+						<li>Guess 3, PICK HARDEST WORD LIST</li>
+						<li>Guess 4, PICK SECOND HARDEST WORD LIST IF IT EXISTS, OTHERWISE PICK HARDEST</li>
+						<li>Guess 4, PICK HARDEST WORD LIST</li>
+						<li>Guess 5, PICK HARDEST WORD LIST</li>
+						<li>Guess 6, PICK HARDEST WORD LIST</li>
+						<li>Guess 7, PICK HARDEST WORD LIST</li>
+						<li>Guess 8, PICK SECOND HARDEST WORD LIST IF IT EXISTS, OTHERWISE PICK HARDEST</li>
+						<li>and so forth ...</li>
+					</ul>
+					Easy behavior for picking new list of words in makeGuess method: 
+					<ul>
+						<li>Guess 1, PICK HARDEST WORD LIST</li>
+						<li>Guess 2, PICK SECOND HARDEST WORD LIST IF IT EXISTS, OTHERWISE PICK HARDEST </li>
+						<li>Guess 3, PICK HARDEST WORD LIST</li>
+						<li>Guess 4, PICK SECOND HARDEST WORD LIST IF IT EXISTS, OTHERWISE PICK HARDEST </li>
+						<li>Guess 5, PICK HARDEST WORD LIST</li>
+						<li>Guess 6, PICK SECOND HARDEST WORD LIST IF IT EXISTS, OTHERWISE PICK HARDEST </li>
+						<li>and so forth ...</li>
+					</ul>
+				</p>
+			</section>
+		</section>
+
+		<footer>
+			Austin, TX - 78705 &bull; kushalpachchigar@utexas.edu &bull; 512-806-9375
+		</footer>
+
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="./../backend/ehgame/ehgame.js"></script>
+	</body>
+</html>
