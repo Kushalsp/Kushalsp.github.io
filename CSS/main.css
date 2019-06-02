@@ -117,7 +117,11 @@ footer{
 	}
 }
 
+<<<<<<< HEAD
+/*@media screen and (max-width: 500px){
+=======
 /* @media screen and (max-width: 500px){
+>>>>>>> a642d94bed99fb5d333cfba7084d4b083375511c
 	header nav .navbar-brand{
 		font-size: 20px;
 	}
@@ -133,5 +137,9 @@ footer{
 	.myself{
 		font-size: 15px;
 	}
+<<<<<<< HEAD
+}*/
+=======
 } */
+>>>>>>> a642d94bed99fb5d333cfba7084d4b083375511c
 

@@ -257,7 +257,7 @@ var HangmanMain = (function () {
             else
                 HangmanMain.keyboard = document.getElementById("guess_input").value;
 
-            var result = HangmanMain.keyboard;
+            var result = HangmanMain.keyboard.toLowerCase();
             
             while ((result == null || result.length === 0 || !HangmanMain.isEnglishLetter(result.charAt(0)))) {
                 alert("That is not an English letter.");

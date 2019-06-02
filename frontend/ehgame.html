@@ -88,9 +88,9 @@
 			</section>
 
 			<section id="ehgame_end" class="ehgame_end">
-				<br><strong>Disclosure: (What's different in this game then regular Hangman game? Why is this one more difficult to win??) </strong>
+				<br><strong>Disclosure: <br>(What's different in this game then regular Hangman game? Why is this one more difficult to win??) </strong>
 				<p>
-					This algorithm was introduced to me in the Data structure's class (Fall2018) at UT Austin, taught by Mike Scott.
+					<br>This algorithm was introduced to me in the Data structure's class (Fall2018) at UT Austin, taught by Mike Scott.
 					<br>The simple answer to the question is: The algorithm does not pick a single word until it has to. Instead, it keeps a list of possible words based on user guesses. Here' how it picks the "active word list".
 					<br><br>The words (really just Strings) in the active list all  have the same pattern as the "word" displayed to the user.
 					<br>A pattern consist of the letters that have been guessed correctly and the letters that have not been guessed yet. For example, if the current pattern is "-e-e-" then the words "beget", "beret", "bevel", "defer", "deter" and so forth would be in the list of active words. The "-" characters are wildcard characters and represent any character that has not been guessed yet.
