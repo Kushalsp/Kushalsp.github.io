@@ -115,18 +115,9 @@ footer{
 	.features{
 		background-repeat: repeat-x;
 	}
-
-/*To disable hover in smaller screen size*/
-/*	.dropdown-menu {
-	    display: none !important;
-	}
-
-	.open .dropdown-menu {
-	    display: inline-block !important;
-	}*/
 }
 
-@media screen and (max-width: 500px){
+/* @media screen and (max-width: 500px){
 	header nav .navbar-brand{
 		font-size: 20px;
 	}
@@ -142,5 +133,5 @@ footer{
 	.myself{
 		font-size: 15px;
 	}
-}
+} */
 
