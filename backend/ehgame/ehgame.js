@@ -211,7 +211,7 @@ var HangmanMain = (function () {
         // while ((hangman.getGuessesLeft() > 0 && (hangman.getPattern().indexOf("-") != -1))) 
         {
             {
-                document.getElementById("update_guess_left").innerHTML = ("Guesses left: " + hangman.getGuessesLeft());
+                
                 if (HangmanMain.DEBUG) {
                     console.info("DEBUGGING: words left : " + hangman.numWordsCurrent());
                 }
@@ -231,6 +231,7 @@ var HangmanMain = (function () {
                 else {
                     document.getElementById("update_result").innerHTML = ("Yes, there are " + count + " " + guess + "\'s");
                 }
+                document.getElementById("update_guess_left").innerHTML = ("Guesses left: " + hangman.getGuessesLeft());
                 document.getElementById("update_guess_so_far").innerHTML = ("Guessed so far : " + hangman.getGuessesMade());
                 document.getElementById("update_current_word").innerHTML = ("Current word : " + hangman.getPattern());
                 document.getElementById("guess_input").value="";

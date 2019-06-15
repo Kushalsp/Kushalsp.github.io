@@ -36,6 +36,7 @@
 				        </a>
 				        <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown">
 				          <a class="dropdown-item" href="ehgame.html">Evil Hangman Game</a>
+				          <a class="dropdown-item" href="Huffman.html">Huffman Coding</a>
 				        </div>
 				    </div>
 				   </li>
@@ -56,6 +57,9 @@
 			<section id="ehgame_start" class="ehgame_start">
 				<h5>Welcome to Evil Hangman Game!</h5>
 				<ul>
+					<li>
+						Hangman is a game where the player tries to guess the secret word of a chosen length in certain guesses. The length of the secret word, the number of wrong guesses allowed and the difficulty level is all chosen by the player in this version of the game. There is something else going on in this version of the game which you will find out when you win the game, well 90% of the time the computer wont give up when difficulty is hard. Trying to win Evil Hangman? Good Luck!
+					</li>
 					<!-- <li>
 						Choose a .txt file that has a list of all acceptable english words from which a computer can choose the secret word! If you don't have such file, download the sample.txt file (downloaded as dctionary.txt file) and select that as your new file. 
 						<a target="_blank" href="./../files/dictionary.txt" download="dictionary.txt">Sample.txt</a>
@@ -84,7 +88,7 @@
 			</section>
 
 			<section id="ehgame_end" class="ehgame_end">
-				<br><strong>Disclosure: <br>(What's different in this game then regular Hangman game? Why is this one more difficult to win??) </strong>
+				<br><strong>Disclosure: Behind the scenes!<br>(What's different in this game then regular Hangman game? Why is this one more difficult to win??) </strong>
 				<p>
 					<br>This algorithm was introduced to me in the Data structure's class (Fall2018) at UT Austin, taught by Mike Scott.
 					<br>The simple answer to the question is: The algorithm does not pick a single word until it has to. Instead, it keeps a list of possible words based on user guesses. Here' how it picks the "active word list".
@@ -108,7 +112,7 @@
 						<li>[ally, cool, good]</li>
 					</ul>
 					Since it didn't reveal any letters, it counts "e" as a wrong guess. 
-					<br><br>In case of a tie, it revels the picks the word family that revels the minimum letters in the current word.
+					<br><br>In case of a tie, it picks the word family that revels the minimum letters in the current word.
 					<br>If this still results in a tie, it breaks the tie by picking the pattern that is "smallest" based on the lexigraphical ordering of Strings. Here, "---a" is lexigraphically smaller (or before) "a---".
 					<br>Medium and easy dificulty level chooses the remaining word families as under:
 					<br><br>Medium behavior for picking new list of words in makeGuess method: 
